@@ -1,0 +1,978 @@
+
+// breakpoints
+
+$medium: 640px;
+$tablet: 768px;
+$large: 1100px;
+$xlarge: 1200px;
+$xxlarge: 1400px;
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 17px;
+
+  @media only screen and (min-width: $tablet) {
+    font-size: 18px;
+  }
+  @media only screen and (min-width: $large) {
+    font-size: 20px;
+  }
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+html, body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+
+// colours
+$black: #1C2326;
+$white: #F7F7F7;
+$darkGreen: #23404C;
+$darkNavy: #141929;
+$navy: #2A3050;
+$water: #99B7DC;
+$yellow: #EAB65C;
+$blackText: #151929;
+$red: #992E27;
+$darkRed: #AE483D;
+$lightRed: #E29B93;
+$pinkBG: #F19891;
+$cream: #FCF4ED;
+$offWhite: #FFFCFA;
+$blue: #87A8C9;
+$brown: #7E6851;
+
+@mixin wrapper {
+  max-width: 1700px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+@mixin blogSlimWrapper {
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+@mixin blogLargeWrapper {
+  max-width: 1740px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+@mixin blogWrapper {
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.wrapper {
+  @include wrapper();
+  padding-left: 20px;
+  padding-right: 20px;
+  @media (min-width: $tablet) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  @media (min-width: $large) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@mixin fadein {
+  @media (min-width: $tablet) {
+    opacity: 0;
+    transition: .5s ease;
+    transition-delay: .25s;
+    &.active {
+      opacity: 1;
+    }
+  }
+}
+@mixin fadeInRight {
+  @media (min-width: $tablet) {
+    opacity: 0;
+    transition: .5s ease;
+    transform: translateX(-50px);
+    // transition-delay: .25s;
+    &.active {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+.fadeInRight {
+  @include fadeInRight();
+}
+@mixin fadeInLeft {
+  @media (min-width: $tablet) {
+    opacity: 0;
+    transition: .5s ease;
+    transform: translateX(50px);
+    // transition-delay: .25s;
+    &.active {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+.fadeInLeft {
+  @include fadeInLeft();
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.05;
+  font-family: 'Italiana', serif;
+  font-weight: 300;
+}
+@mixin play() {
+  font-family: 'Italiana', serif;
+  font-weight: 400;
+}
+.play {
+  @include play();
+}
+@mixin pop() {
+  font-family: 'Poppins', sans-serif;
+
+  font-weight: 300;
+}
+.pop {
+  @include pop();
+}
+@mixin ital() {
+  font-family: 'Italiana', serif;
+  font-weight: 400;
+}
+@mixin ital() {
+  font-family: 'Italiana', serif;
+  font-weight: 400;
+}
+.ital {
+  @include play();
+}
+
+.fiftyFourTitle {
+  font-size: 38px;
+  @media (min-width: 768px) {
+    font-size: 42px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 48px;
+  }
+  
+  @media (min-width: 1200px) {
+    font-size: 52px;
+  }
+  @media (min-width: 1400px) {
+    font-size: 54px;
+  }
+}
+
+@mixin largeButtonText() {
+  font-size: 24px;
+
+  @media only screen and (min-width: 1024px) {
+    font-size: 28px;
+  }
+  @media only screen and (min-width: $large) {
+    font-size: 30px;
+  }
+  @media only screen and (min-width: $xlarge) {
+    font-size: 33px;
+  }
+}
+@mixin buttonText() {
+  font-size: 16px;
+
+  @media only screen and (min-width: 1024px) {
+    font-size: 18px;
+  }
+  @media only screen and (min-width: $large) {
+    font-size: 21px;
+  }
+  // @media only screen and (min-width: $xlarge) {
+  //   font-size: 25px;
+  // }
+}
+@mixin smallButtonText() {
+  font-size: 15px;
+
+  @media only screen and (min-width: $xlarge) {
+    font-size: 16px;
+  }
+}
+
+.whatsonTitle {
+  font-size: 40px;
+  @media (min-width: 768px) {
+    font-size: 60px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 75px;
+  }
+  
+  @media (min-width: 1200px) {
+    font-size: 85px;
+  }
+  @media (min-width: 1400px) {
+    font-size: 90px;
+  }
+}
+
+.bespokeTitle {
+  font-size: 38px;
+  @media (min-width: 350px) {
+    font-size: 40px;
+  }
+  @media (min-width: 768px) {
+    font-size: 50px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 64px;
+  }
+  
+  @media (min-width: 1200px) {
+    font-size: 74px;
+  }
+  @media (min-width: 1400px) {
+    font-size: 78px;
+  }
+}
+.largeh1 {
+  font-size: 46px;
+  @media (min-width: 350px) {
+    font-size: 48px;
+  }
+  @media (min-width: 768px) {
+    font-size: 70px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 84px;
+  }
+  
+  @media (min-width: 1200px) {
+    font-size: 94px;
+  }
+  @media (min-width: 1400px) {
+    font-size: 98px;
+  }
+}
+.contactTitle {
+  font-size: 46px;
+  @media (min-width: 350px) {
+    font-size: 56px;
+  }
+  @media (min-width: 768px) {
+    font-size: 65px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 75px;
+  }
+  
+  @media (min-width: 1200px) {
+    font-size: 85px;
+  }
+  @media (min-width: 1400px) {
+    font-size: 95px;
+  }
+}
+.inTouchTitle {
+  font-size: 36px;
+  @media (min-width: 768px) {
+    font-size: 55px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 67px;
+  }
+  
+  @media (min-width: 1200px) {
+    font-size: 70px;
+  }
+  @media (min-width: 1400px) {
+    font-size: 85px;
+  }
+}
+@mixin headerTwo() {
+  font-size: 28px;
+  margin-bottom: 40px;
+  @media (min-width: 768px) {
+    font-size: 32px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 42px;
+  }
+  
+  @media (min-width: 1200px) {
+    font-size: 45px;
+  }
+  @media (min-width: 1400px) {
+    font-size: 60px;
+  }
+}
+
+.headerTwo {
+  @include headerTwo();
+
+}
+@mixin headerThree() {
+  font-size: 22px;
+  margin-bottom: 30px;
+  font-weight: 700;
+  @media (min-width: 768px) {
+    font-size: 26px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 34px;
+  }
+  
+  @media (min-width: 1200px) {
+    font-size: 40px;
+  }
+  @media (min-width: 1400px) {
+    font-size: 48px;
+  }
+}
+@mixin headerTwoHalf() {
+  font-size: 29px;
+  margin-bottom: 30px;
+  @media (min-width: 768px) {
+    font-size: 33px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 44px;
+  }
+  
+  @media (min-width: 1200px) {
+    font-size: 47px;
+  }
+  @media (min-width: 1400px) {
+    font-size: 55px;
+  }
+}
+.headerTwoHalf {
+  @include headerTwoHalf();
+}
+@mixin headerThree() {
+  font-size: 22px;
+  margin-bottom: 30px;
+  font-weight: 700;
+  @media (min-width: 768px) {
+    font-size: 26px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 34px;
+  }
+  
+  @media (min-width: 1200px) {
+    font-size: 40px;
+  }
+  @media (min-width: 1400px) {
+    font-size: 48px;
+  }
+  
+}
+.headerThree {
+  @include headerThree();
+}
+
+@mixin whatsOnHeaderTwo {
+  font-size: 20px;
+  font-weight: 700;
+  @media (min-width: 768px) {
+    font-size: 24px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 28px;
+  }
+  
+  @media (min-width: 1200px) {
+    font-size: 30px;
+  }
+  @media (min-width: 1400px) {
+    font-size: 34px;
+  }
+}
+.whatsOnHeaderTwo {
+  @include whatsOnHeaderTwo();
+}
+
+
+
+@mixin largeTitle() {
+  font-size: 33px;
+  @media (min-width: 360px) {
+    font-size: 36px;
+  }
+  @media (min-width: 768px) {
+    font-size: 50px;
+    margin-bottom: 30px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 65px;
+    margin-bottom: 50px;
+  }
+  
+  @media (min-width: 1200px) {
+    font-size: 72px;
+  }
+  @media (min-width: 1400px) {
+    font-size: 80px;
+  }
+  
+}
+
+// wrappers - containers
+
+@mixin largeWrapper {
+  max-width: 1900px;
+  // max-width: 1460px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+@mixin wrapper {
+  max-width: 1600px;
+  // max-width: 1460px;
+  margin: 0 auto;
+  padding: 0 20px;
+  @media only screen and (min-width: $large) {
+    padding: 0 40px;
+  }
+}
+
+.bookButton {
+  border-radius: 38px;
+  font-size: 16px;
+  height: 76px;
+  padding: 25px 40px;
+  transition: .3s ease;
+  text-transform: uppercase;
+  @media only screen and (min-width: $large) {
+    font-size: 18px;
+    border-radius: 45px;
+    height: 90px;
+    padding: 35px 60px;
+  }
+  &.bgDarkRed {
+    background-color: $darkRed;
+    color: $white;
+    border: 2px solid $darkRed;
+    @media only screen and (min-width: $large) {
+      &:hover {
+        background-color: $white;
+        color: $darkRed;
+      }
+    }
+  }
+  &.bgCream {
+    background-color: $cream;
+    color: $darkRed;
+    @media only screen and (min-width: $large) {
+      &:hover {
+        background-color: $darkRed;
+        color: $cream;
+      }
+    }
+  }
+}
+.googleButton {
+  border-radius: 45px;
+  font-size: 16px;
+  padding: 20px 35px;
+  text-transform: uppercase;
+  display: inline-flex;
+  justify-content: center;
+  transition: .3s ease;
+  align-items: center;
+  border: 2px solid $darkRed;
+  @media only screen and (min-width: $large) {
+    font-size: 18px;
+    padding: 25px 40px;
+  }
+  &.bgDarkRed {
+    background-color: $darkRed;
+    color: $white;
+    @media only screen and (min-width: $large) {
+      &:hover {
+        background-color: $white;
+        color: $darkRed;
+      }
+    }
+  }
+  &.bgCream {
+    background-color: $cream;
+    color: $darkRed;
+    @media only screen and (min-width: $large) {
+      &:hover {
+        background-color: $darkRed;
+        color: $cream;
+      }
+    }
+  }
+}
+
+.yellowButton {
+  // background-color: $yellow;
+  color: $blackText;
+  padding: 16px 20px 24px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 70px;
+  text-align: center;
+  min-width: 130px;
+  justify-content: center;
+  
+  @media (min-width: $large) {
+    height: 90px;
+    padding: 20px 60px 22px;
+  }
+  @media (min-width: $xlarge) {
+    // padding: 20px 50px 40px;
+    padding: 30px 70px 32px;
+  }
+  &.readMore {
+    @media (min-width: $large) {
+      padding: 20px 30px 22px;
+    }
+    // @media (min-width: $xlarge) {
+    //   padding: 30px 70px 32px;
+    // }
+    span {
+      top: 4px;
+      @media only screen and (min-width: $large) {
+        top: 0;
+      }
+    }
+  }
+  .yellBG {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    z-index: 1;
+    max-height: 100%;
+    height: 100%;
+    width:100%;
+
+  }
+  span {
+    position: relative;
+    z-index: 2;
+    line-height: 1;
+    top: 7px;
+    @include buttonText();
+    @media only screen and (min-width: $large) {
+      top: 4px;
+    }
+  }
+}
+.button {
+  position: relative;
+  padding: 10px 15px;
+  .buttonBG {
+    position: absolute;
+    top: 0;
+    bottom: 0;left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 1;
+    span {
+      position: relative;
+      z-index: 2;
+    }
+  }
+}
+.blueButton {
+  // background-color: $yellow;
+  color: $white;
+  padding: 20px 50px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 80px;
+  
+  @media (min-width: $large) {
+    height: 100px;
+    padding: 20px 60px;
+  }
+  @media (min-width: $xlarge) {
+    // padding: 20px 50px 40px;
+    padding: 30px 100px;
+  }
+  
+  .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    z-index: 1;
+    max-height: 100%;
+    height: 100%;
+    width:100%;
+
+  }
+  span {
+    position: relative;
+    z-index: 2;
+    color: $white;
+    line-height: 1;
+    @include largeButtonText();
+  }
+}
+.largeOutlineButton {
+  color: $darkNavy;
+  padding: 20px 50px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 80px;
+  
+  @media (min-width: $large) {
+    height: 100px;
+    padding: 20px 60px;
+  }
+  @media (min-width: $xlarge) {
+    // padding: 20px 50px 40px;
+    padding: 30px 100px;
+  }
+  
+  .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    z-index: 1;
+    max-height: 100%;
+    height: 100%;
+    width:100%;
+
+  }
+  span {
+    position: relative;
+    z-index: 2;
+    color: $darkNavy;
+    line-height: 1;
+    @include largeButtonText();
+  }
+}
+.whiteOutlineButton {
+  // background-color: $yellow;
+  color: $white;
+  padding: 5px 30px 30px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 54px;
+  top: -6px;
+
+
+  @media (min-width: $large) {
+    height: 69px;
+    padding: 13px 40px 27px;
+    top: 0;
+  }
+  @media (min-width: $xlarge) {
+    padding: 13px 50px 27px;
+  }
+  // border: 2px solid $yellow;
+  .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    z-index: 1;
+    max-height: 100%;
+    height: 100%;
+    width:100%;
+  }
+  span {
+    position: relative;
+    z-index: 2;
+    line-height: 1;
+    top: 15px;
+    @include buttonText();
+    color: $white;
+    @media only screen and (min-width: $tablet) {
+      top: 13px;
+
+    }
+    @media only screen and (min-width: $large) {
+      top: 8px;
+
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  transition: .3s ease;
+  &:hover {
+    cursor: pointer!important;
+  }
+}
+section {
+  float: left;
+  width: 100%;
+}
+svg {
+  pointer-events: none;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="tel"] {
+  background: transparent;
+  border: none;
+}
+
+a,
+div,
+button,
+select,
+input,
+textarea,
+text {
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+}
+
+@mixin twentyText() {
+  font-size: 16px;
+  @media (min-width: 768px) {
+    font-size: 17px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 18px;
+  }
+  
+  @media (min-width: 1200px) {
+    font-size: 19px;
+  }
+  @media (min-width: 1400px) {
+    font-size: 20px;
+  }
+
+}
+
+.twentyText {
+  @include twentyText();
+}
+
+@mixin twentyFourText() {
+  font-size: 18px;
+  @media (min-width: 768px) {
+    font-size: 19px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 21px;
+  }
+  
+  @media (min-width: 1200px) {
+    font-size: 22px;
+  }
+  @media (min-width: 1400px) {
+    font-size: 24px;
+  }
+
+}
+
+.twentyFourText {
+  @include twentyFourText();
+}
+
+@mixin fortyFourText() {
+  font-size: 24px;
+  @media (min-width: 768px) {
+    font-size: 28px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 32px;
+  }
+  
+  @media (min-width: 1200px) {
+    font-size: 36px;
+  }
+  @media (min-width: 1400px) {
+    font-size: 44px;
+  }
+
+}
+
+.fortyFourText {
+  @include fortyFourText();
+}
+@mixin twentyTwoText() {
+  font-size: 18px;
+  @media (min-width: 768px) {
+    font-size: 19px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 20px;
+  }
+  
+  @media (min-width: 1200px) {
+    font-size: 21px;
+  }
+  @media (min-width: 1400px) {
+    font-size: 22px;
+  }
+}
+
+.twentyTwoText {
+  @include twentyTwoText();
+}
+
+
+@mixin thirtyTwoText() {
+  font-size: 20px;
+  @media (min-width: 768px) {
+    font-size: 26px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 30px;
+  }
+  
+  @media (min-width: 1200px) {
+    font-size: 31px;
+  }
+  @media (min-width: 1400px) {
+    font-size: 32px;
+  }
+}
+.thirtyTwoText {
+  @include thirtyTwoText();
+}
+
+@mixin thirtyText() {
+  font-size: 19px;
+  @media (min-width: 768px) {
+    font-size: 24px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 28px;
+  }
+  
+  @media (min-width: 1200px) {
+    font-size: 29px;
+  }
+  @media (min-width: 1400px) {
+    font-size: 30px;
+  }
+}
+.thirtyText {
+  @include thirtyText();
+}
+
+.twentySixText {
+  font-size: 17px;
+  @media (min-width: 768px) {
+    font-size: 22px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 23px;
+  }
+  
+  @media (min-width: 1400px) {
+    font-size: 25px;
+  }
+  @media (min-width: 1600px) {
+    font-size: 26px;
+  }
+}
+
+@mixin twentySixText() {
+    font-size: 22px;
+    @media (min-width: 768px) {
+      font-size: 23px;
+    }
+    @media (min-width: 1024px) {
+      font-size: 24px;
+    }
+    
+    @media (min-width: 1200px) {
+      font-size: 25px;
+    }
+    @media (min-width: 1400px) {
+      font-size: 26px;
+    }
+}
+@mixin quoteText() {
+    font-size: 32px;
+    @media (min-width: 768px) {
+      font-size: 46px;
+    }
+    @media (min-width: 1024px) {
+      font-size: 50px;
+    }
+    
+    @media (min-width: 1200px) {
+      font-size: 58px;
+    }
+    @media (min-width: 1400px) {
+      font-size: 70px;
+    }
+}
+.quoteText {
+  @include quoteText();
+}
+.half {
+  @media (min-width: $tablet) {
+    flex: 0 1 calc(50% - 20px);
+  }
+  @media (min-width: $large) {
+    flex: 0 1 calc(50% - 30px);
+  }
+  @media (min-width: $xlarge) {
+    flex: 0 1 calc(50% - 40px);
+  }
+}
+
+@mixin svgShadow() {
+  filter: drop-shadow(2px 20px 10px rgba(0, 0, 0, 0.15));
+  transform: translateZ(0);
+}
+.svgShadow {
+  @include svgShadow();
+}
+
+@mixin shadow() {
+  text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.1);
+}
+.shadow {
+  @include shadow();
+}
